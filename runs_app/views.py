@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseNotFound, Http404
 
 pages = {
     'runs': 'List Runs',
@@ -9,4 +9,8 @@ pages = {
 
 # Create your views here.
 def runs_view(request, topic):
-    return HttpResponse(pages[topic])
+    try:
+        result = pages[topic]
+        return HttpResponse(pages[topic])
+    except:
+        raise Http404("404 Generic Error") # Can connect to 404 template
