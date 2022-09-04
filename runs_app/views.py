@@ -6,3 +6,12 @@ from django.urls import reverse
 def runs_view(request):
     return render(request, 'runs_app/example.html')
 
+def run_view(request):
+
+    my_var = {'first_name': 'first', 'last_name': 'last',
+        'some_list': [1,2,3], 'user_logged_in': True, 'runstatus': {
+            'message': 'test runstatus message'
+        }
+    }
+    return render(request, 'runs_app/run.html', context = my_var)
+
