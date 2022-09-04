@@ -1,9 +1,12 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 
 <h3>Inside example.html block</h3>
 <h2><a href="{% url 'runs_app:run_view' %}">Runs view link</a> </h2>
+
+<img src="{% static 'runs_app/image.png' %}" alt='Placeholder image'>
 
 {% endblock content %}
 
