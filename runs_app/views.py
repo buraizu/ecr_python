@@ -4,7 +4,11 @@ from django.urls import reverse
 
 # Create your views here.
 def list_runs(request):
-    return render(request, 'runs_app/example.html')
+
+    all_runs = models.Run.objects.all()
+    context = {'runs':all_runs}
+
+    return render(request, 'runs_app/runs.html', context=context)
 
 def run_detail(request):
 
