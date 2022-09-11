@@ -5,7 +5,7 @@ from django.core.validators import MinValueValidator,MaxValueValidator
 class Run(models.Model):
     course = models.CharField(max_length=80)
     distance = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(500)])
-    time = models.IntegerField(validators=[MinValueValidator(5)])
+    duration = models.IntegerField(validators=[MinValueValidator(1)],default=2)
     rating = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(10)])
     review = models.TextField()
 

@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse, HttpResponseNotFound, Http404
 from django.urls import reverse
+from .forms import AddRunForm
 from . import models
 
 # Create your views here.
@@ -20,5 +21,16 @@ def run_detail(request):
 
 def add_run(request):
 
-    return render(request, 'runs_app/add_run.html')
+    # POST REQUEST --> FORM CONTENTS --> LIST RUNS
+    if request.method == 'POST':
+        form = AddRunForm(request.POST)
+
+        if form.is_valid():
+            print(form.cleaned_data)
+            return redirect(reverse('runs_app:list_runs'))
+
+    # ELSE, RENDER FORM
+    else:
+        form = AddRunForm()
+    return render(request, 'runs_app/add_run.html', context={'form':form})
 
