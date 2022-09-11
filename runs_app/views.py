@@ -18,3 +18,7 @@ def run_detail(request):
     }
     return render(request, 'runs_app/run.html', context = my_var)
 
+def add_run(request):
+
+    return render(request, 'runs_app/add_run.html')
+
