@@ -8,6 +8,12 @@
 
 <img src="{% static 'runs_app/image.png' %}" alt='Placeholder image'>
 
+<ul>
+    {% for run in runs %}
+    <li>{{run.course}}</li>
+    {% endfor %}
+</ul>
+After the unordered list
 {% endblock content %}
 
 
