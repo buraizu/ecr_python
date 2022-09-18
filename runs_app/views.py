@@ -1,16 +1,37 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse, HttpResponseNotFound, Http404
-from django.urls import reverse
+from django.urls import reverse,reverse_lazy
+from django.views.generic import TemplateView,FormView,CreateView
+from runs_app.models import Run
 from .forms import AddRunForm
 from . import models
 
 # Create your views here.
-def list_runs(request):
 
-    all_runs = models.Run.objects.all()
-    context = {'runs':all_runs}
+class RunsView(TemplateView):
+    template_name = 'runs_app/runs.html'
 
-    return render(request, 'runs_app/runs.html', context=context)
+class RunCreateView(CreateView):
+    model = Run
+    fields = "__all__"
+    success_url = reverse_lazy('runs_app:list_runs')
+
+# class RunFormView(FormView):
+#     form_class = AddRunForm
+#     template_name = 'runs_app/add_run.html'
+
+#     success_url = reverse_lazy('runs_app:list_runs')
+
+#     def form_valid(self,form):
+#         print(form.cleaned_data)
+#         return super().form_valid(form)
+
+# def list_runs(request):
+
+#     all_runs = models.Run.objects.all()
+#     context = {'runs':all_runs}
+
+#     return render(request, 'runs_app/runs.html', context=context)
 
 def run_detail(request):
 
@@ -26,7 +47,7 @@ def add_run(request):
         form = AddRunForm(request.POST)
 
         if form.is_valid():
-            print(form.cleaned_data)
+            form.save()
             return redirect(reverse('runs_app:list_runs'))
 
     # ELSE, RENDER FORM
