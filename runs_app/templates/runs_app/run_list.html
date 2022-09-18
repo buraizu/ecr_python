@@ -9,8 +9,8 @@
 <img src="{% static 'runs_app/image.png' %}" alt='Placeholder image'>
 
 <ul>
-    {% for run in runs %}
-    <li>{{run.course}}</li>
+    {% for run in run_list %}
+    <li>{{run.course}} -- rated {{run.rating}}/10</li>
     {% endfor %}
 </ul>
 After the unordered list

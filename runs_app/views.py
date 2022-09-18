@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse, HttpResponseNotFound, Http404
 from django.urls import reverse,reverse_lazy
-from django.views.generic import TemplateView,FormView,CreateView
+from django.views.generic import TemplateView,FormView,CreateView,ListView
 from runs_app.models import Run
 from .forms import AddRunForm
 from . import models
@@ -15,6 +15,10 @@ class RunCreateView(CreateView):
     model = Run
     fields = "__all__"
     success_url = reverse_lazy('runs_app:list_runs')
+
+class RunListView(ListView):
+    model = Run
+    context_object_name = "run_list"
 
 # class RunFormView(FormView):
 #     form_class = AddRunForm
