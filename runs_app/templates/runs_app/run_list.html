@@ -4,13 +4,12 @@
 {% block content %}
 
 <h3>Inside example.html block</h3>
-<h2><a href="{% url 'runs_app:run_detail' %}">Runs view link</a> </h2>
 
 <img src="{% static 'runs_app/image.png' %}" alt='Placeholder image'>
 
 <ul>
     {% for run in run_list %}
-    <li>{{run.course}} -- rated {{run.rating}}/10</li>
+    <li><a href="/runs_app/run_detail/{{run.id}}">{{run.course}} -- rated {{run.rating}}/10</a></li>
     {% endfor %}
 </ul>
 After the unordered list

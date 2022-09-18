@@ -11,4 +11,4 @@ class Run(models.Model):
 
     def __str__(self):
 
-        return f"{self.course} with a distance of {self.distance} and a time of {self.time}. The rating is {self.rating} and the review is {self.review}."
+        return f"{self.course} with a distance of {self.distance} and a time of {self.duration}. The rating is {self.rating} and the review is {self.review}."
