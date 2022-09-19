@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Are you sure you want to delete this run?</h1>
+
+{{run}}
+
+<form method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Confirm Delete" />
+</form>
+
+{% endblock content %}

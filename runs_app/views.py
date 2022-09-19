@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse, HttpResponseNotFound, Http404
 from django.urls import reverse,reverse_lazy
-from django.views.generic import TemplateView,FormView,CreateView,ListView,DetailView,UpdateView
+from django.views.generic import TemplateView,FormView,CreateView,ListView,DetailView,UpdateView,DeleteView
 from runs_app.models import Run
 from .forms import AddRunForm
 from . import models
@@ -26,6 +26,10 @@ class RunDetailView(DetailView):
 class RunUpdateView(UpdateView):
     model = Run
     fields = "__all__"
+    success_url = reverse_lazy('runs_app:list_runs')
+
+class RunDeleteView(DeleteView):
+    model = Run
     success_url = reverse_lazy('runs_app:list_runs')
 
 # class RunFormView(FormView):

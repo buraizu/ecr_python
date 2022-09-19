@@ -11,7 +11,12 @@
     {% for run in run_list %}
     <li><a href="/runs_app/run_detail/{{run.id}}">{{run.course}} -- rated {{run.rating}}/10</a></li>
     <ul>
-        <li><a href="/runs_app/update_run/{{run.id}}">Edit your {{run.course}} run</a></li>
+        <li>
+            <a href="/runs_app/update_run/{{run.id}}">Edit your {{run.course}} run</a>
+        </li>
+        <li>
+            <a href="/runs_app/delete_run/{{run.id}}">Delete your {{run.course}} run</a>
+        </li>
     </ul>
     {% endfor %}
 </ul>
