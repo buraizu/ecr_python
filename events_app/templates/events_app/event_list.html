@@ -4,4 +4,10 @@
 
 <h1>Event Page</h1>
 
+<ol>
+    {% for event in event_list %}
+    <li>{{event.name}} on {{event.date}}</li>
+    {% endfor %}
+</ol>
+
 {% endblock content %}
