@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django.core.validators import MinValueValidator,MaxValueValidator
 
 # Create your models here.
@@ -10,5 +11,7 @@ class Run(models.Model):
     review = models.TextField()
 
     def __str__(self):
-
         return f"{self.course} with a distance of {self.distance} and a time of {self.duration}. The rating is {self.rating} and the review is {self.review}."
+    
+    def get_absolute_url(self):
+        return reverse("run_detail", kwargs={"pk": self.pk})
