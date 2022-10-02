@@ -22,5 +22,6 @@ urlpatterns = [
     path('runs_app/', include('runs_app.urls')),
     path('events_app/', include('events_app.urls')),
     path('admin/', admin.site.urls),
-    path('', RedirectView.as_view(url='events_app/list_events'))
+    path('', RedirectView.as_view(url='events_app/list_events')),
+    path('accounts/', include('django.contrib.auth.urls'))
 ]
