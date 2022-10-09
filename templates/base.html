@@ -39,7 +39,11 @@
         </div>
     </nav>
         {% block content %}
-
+          {% if user.is_authenticated %} 
+            <p>You are signed in {{user.get_username}}</p>
+          {% else %} 
+            <p>You are not signed in.</p>
+          {% endif %}
         {% endblock content %}
     <h2 class='form'>Below block</h2>
 
