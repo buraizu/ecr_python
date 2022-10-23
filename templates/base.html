@@ -38,13 +38,13 @@
           </ul>
         </div>
     </nav>
-        {% block content %}
+    <h2>Above block</h2>
+          <h3>Cowabunga</h3>
           {% if user.is_authenticated %} 
             <p>You are signed in {{user.get_username}}</p>
           {% else %} 
             <p>You are not signed in.</p>
           {% endif %}
-        {% endblock content %}
     <h2 class='form'>Below block</h2>
 
 </body>
