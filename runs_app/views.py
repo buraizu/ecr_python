@@ -6,8 +6,6 @@ from runs_app.models import Run
 from .forms import AddRunForm
 from . import models
 
-# Create your views here.
-
 class RunsView(TemplateView):
     template_name = 'runs_app/runs.html'
 
