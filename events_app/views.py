@@ -1,9 +1,16 @@
 from django.shortcuts import render
 from django.views.generic import ListView
 from events_app.models import Event
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.forms import UserCreationForm
+from django.views.generic import CreateView
+from django.urls import reverse_lazy
 
 # Create your views here.
-class EventListView(LoginRequiredMixin, ListView):
+class EventListView( ListView):
     model = Event
     context_object_name = "event_list"
+
+class SignUpView(CreateView):
+    form_class = UserCreationForm
+    success_url = reverse_lazy('login')
+    template_name = 'registration/signup.html'

@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from django.views.generic import RedirectView
+import events_app
 
 
 urlpatterns = [
@@ -23,5 +24,6 @@ urlpatterns = [
     path('events_app/', include('events_app.urls')),
     path('admin/', admin.site.urls),
     path('', RedirectView.as_view(url='events_app/list_events')),
-    path('accounts/', include('django.contrib.auth.urls'))
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('signup/', events_app.views.SignUpView.as_view(), name='signup')
 ]
