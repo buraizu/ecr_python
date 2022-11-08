@@ -12,7 +12,12 @@ class RunsView(TemplateView):
 
 class RunCreateView(CreateView):  # looks for run_form.html inside templates
     model = Run
-    fields = "__all__"
+    fields = ['course', 'distance', 'duration', 'rating', 'review']
+
+    def form_valid(self, form):
+        form.instance.runner = self.request.user
+        return super().form_valid(form)
+        
     success_url = reverse_lazy('runs_app:list_runs')
 
 class RunListView(LoginRequiredMixin, ListView):

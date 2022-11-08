@@ -10,7 +10,7 @@ class Run(models.Model):
     duration = models.IntegerField(validators=[MinValueValidator(1)])
     rating = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(10)])
     review = models.TextField()
-    runner = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    runner = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.course} with a distance of {self.distance} and a time of {self.duration}. The rating is {self.rating} and the review is {self.review}."
