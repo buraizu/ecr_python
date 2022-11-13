@@ -10,7 +10,7 @@ from . import models
 class RunsView(TemplateView):
     template_name = 'runs_app/runs.html'
 
-class RunCreateView(CreateView):  # looks for run_form.html inside templates
+class RunCreateView(CreateView, LoginRequiredMixin):  # looks for run_form.html inside templates
     model = Run
     fields = ['course', 'distance', 'duration', 'rating', 'review']
 

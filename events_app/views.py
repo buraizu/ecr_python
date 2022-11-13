@@ -15,14 +15,3 @@ class SignUpView(CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy('login')
     template_name = 'registration/signup.html'
-
-# class UserEventCreateView(CreateView, LoginRequiredMixin): # LoginRequiredMixin not working here
-#     model = UserEvent
-#     fields = ['goal_time']
-
-#     def form_valid(self, form):
-#         form.instance.runner = self.request.user
-
-#         return super().form_valid(form)
-
-#     success_url = reverse_lazy('events_app:list_events')
