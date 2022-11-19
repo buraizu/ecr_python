@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from runner_events_app.models import RunnerEvent
+from .models import RunnerEvent
 
 # Create your views here.
 class RunnerEventCreateView(CreateView, LoginRequiredMixin):
