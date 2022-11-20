@@ -34,7 +34,7 @@ class RunDetailView(DetailView):
 
 class RunUpdateView(UpdateView):
     model = Run
-    fields = "__all__"
+    fields = ['course', 'distance', 'duration', 'rating', 'review']
     success_url = reverse_lazy('runs_app:list_runs')
 
 class RunDeleteView(DeleteView):
