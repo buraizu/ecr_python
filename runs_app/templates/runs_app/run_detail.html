@@ -1,20 +1,9 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
 {% block content %}
+
     <h1>Run View</h1>
 
     {{run}}
 
-    {% if user_logged_in %} 
-        <h1>Welcome {{ first_name }}!</h1>
-    {% endif %}
-
-    <ul>
-        {% for num in some_list %}
-        {% if num == 2 %}
-            <h5>TWO</h5>
-        {% endif %}
-            <li>{{ num }}</li>
-        {% endfor %}
-    </ul>
 {% endblock content %}
