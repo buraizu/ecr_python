@@ -7,7 +7,7 @@
 <ol>
     {% for event in event_list %}
     <li>{{event.name}} on {{event.date}}</li>
-    <a href="/runner_events_app/create_runner_event/{{runner_events_app.id}}">Set a goal for {{event.name}}.</a>
+    <a href="/events_app/event_detail/{{event.id}}">See more information and set a goal for {{event.name}}!</a>
     {% endfor %}
 </ol>
 
