@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <ol>
+    {% for runnerevent in runnerevent_list %}
+        <li>{{ runnerevent.runner.name }}'s {{ runnerevent.event.name }} event with a goal time of {{ runnerevent.goal_time }}!</li>
+    {% endfor %}
+    </ol>
+{% endblock content %}
