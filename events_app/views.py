@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from events_app.models import Event
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import CreateView
@@ -10,6 +10,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 class EventListView(ListView):
     model = Event
     context_object_name = "event_list"
+
+class EventDetailView(DetailView):
+    model = Event
 
 class SignUpView(CreateView):
     form_class = UserCreationForm
